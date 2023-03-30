@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>EVP Hotspot - Login</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta http-equiv="expires" content="-1" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+		<link rel="stylesheet" type="text/css" href="/style.css" />
+	</head>
+
+<body>	
+	<div class="flex bg-red-50 w-screen h-screen items-center justify-center p-8 md:p-16 flex-col">
+		$(if chap-id)
+			<form name="sendin" action="$(link-login-only)" method="post">
+				<input type="hidden" name="username" />
+				<input type="hidden" name="password" />
+				<input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+			</form>
+			
+			<script type="text/javascript" src="/md5.js"></script>
+			<script type="text/javascript">
+			<!--
+				function doLogin() {
+				document.sendin.username.value = document.login.username.value;
+				document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+				document.sendin.submit();
+				return false;
+				}
+			//-->
+			</script>
+		$(endif)
+		<div class="rounded-lg bg-white w-full p-6 max-w-[400px]">
+			<form name="login" action="$(link-login-only)" method="post"
+			$(if chap-id) onSubmit="return doLogin()" $(endif)>
+				<h1 class="font-bold text-xl mb-3">Faça login para acessar a internet</h1>
+				<input type="hidden" name="dst" value="$(link-orig)" />
+				<input type="hidden" name="popup" value="true" />
+
+				<div class="grid grid-flow-row gap-y-2">
+					<div>
+						<label class="text-xs font-semibold">Usuário</label>
+						<input class="w-full border rounded px-4 py-2" name="username" type="text" value="$(username)"/>
+					</div>
+					<div>
+						<label class="text-xs font-semibold">Senha</label>
+						<input class="w-full border rounded px-4 py-2" name="password" type="password"/>
+					</div>
+				</div>
+				<input class="w-full bg-red-500 flex items-center justify-center text-white py-2 mt-3 rounded-lg" type="submit" value="Entrar" />
+			</form>
+			$(if trial == 'yes')
+			<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class="w-full bg-yellow-100 flex items-center justify-center text-yellow-600 py-2 mt-2 rounded-lg">Usar gratuitamente por 30 minutos</a>.$(endif)
+		</div>
+		<div class="w-full grid grid-flow-col items-center justify-center mt-3 gap-x-3">
+			<a href="https://escolaevp.com.br" target="_blank">
+				<img src="/img/logo.svg" class="w-24" alt="EVP">
+			</a>
+		</div>
+	</div>
+	
+	$(if error)<br /><div style="color: #FF8080; font-size: 9px">$(error)</div>$(endif)
+
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+</body>
+</html>
