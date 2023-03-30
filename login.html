@@ -2,7 +2,7 @@
    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 	<head>
-		<title>EVP Hotspot - Login</title>
+		<title>Sagrada Família Hotspot - Login</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="pragma" content="no-cache" />
 		<meta http-equiv="expires" content="-1" />
@@ -11,7 +11,7 @@
 	</head>
 
 <body>	
-	<div class="flex bg-red-50 w-screen h-screen items-center justify-center p-8 md:p-16 flex-col">
+	<div class="flex bg-sky-50 w-screen h-screen items-center justify-center p-8 md:p-16 flex-col">
 		$(if chap-id)
 			<form name="sendin" action="$(link-login-only)" method="post">
 				<input type="hidden" name="username" />
@@ -49,15 +49,13 @@
 						<input class="w-full border rounded px-4 py-2" name="password" type="password"/>
 					</div>
 				</div>
-				<input class="w-full bg-red-500 flex items-center justify-center text-white py-2 mt-3 rounded-lg" type="submit" value="Entrar" />
+				<input class="w-full bg-sky-700 flex items-center justify-center text-white py-2 mt-3 rounded-lg" type="submit" value="Entrar" />
 			</form>
 			$(if trial == 'yes')
-			<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class="w-full bg-yellow-100 flex items-center justify-center text-yellow-600 py-2 mt-2 rounded-lg">Usar gratuitamente por 30 minutos</a>.$(endif)
+			<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" class="w-full bg-red-100 flex items-center justify-center text-red-600 py-2 mt-2 rounded-lg">Usar gratuitamente por 30 minutos</a>.$(endif)
 		</div>
 		<div class="w-full grid grid-flow-col items-center justify-center mt-3 gap-x-3">
-			<a href="https://escolaevp.com.br" target="_blank">
-				<img src="/img/logo.svg" class="w-24" alt="EVP">
-			</a>
+			<img src="/img/logo.png" class="w-24" alt="EVP">
 		</div>
 	</div>
 	
